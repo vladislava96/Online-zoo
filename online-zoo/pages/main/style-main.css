@@ -1142,7 +1142,7 @@ h3 {
 }
 @media (max-width: 1000px) {
   .footer__menu {
-    margin-left: 50px;
+    margin-left: 63px;
   }
 }
 @media (max-width: 790px) {
@@ -1285,8 +1285,7 @@ h3 {
 
 .slider__visible-cards {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  position: relative;
   overflow: hidden;
   padding: 20px;
   margin: -20px;
@@ -1305,11 +1304,29 @@ h3 {
   }
 }
 
-.slider__cards {
+.slider__cards.active {
   display: grid;
+}
+
+.slider__cards.next {
+  display: grid;
+}
+
+.next {
+  position: absolute;
+  top: 0;
+}
+
+.slider__cards {
+  display: none;
+}
+
+.slider__cards {
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px 26px;
   width: 100%;
+  animation: 0.5s ease-in-out;
 }
 @media (max-width: 1599px) {
   .slider__cards {
@@ -1475,6 +1492,40 @@ h3 {
   color: #FFFFFF;
 }
 
+.to-left {
+  animation-name: left;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
 .button-main {
   display: block;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
@@ -1511,9 +1562,12 @@ h3 {
 
 .testimonials__cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(11, 1fr);
   grid-column-gap: 30px;
   margin-bottom: 15px;
+  position: relative;
+  left: 0px;
+  transition: all 0.5s ease;
 }
 @media (max-width: 999px) {
   .testimonials__cards {
