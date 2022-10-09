@@ -1782,9 +1782,9 @@ h3 {
   }
 }
 
-.burger-menu__background {
+.menu-and-popup__background {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1795,7 +1795,7 @@ h3 {
   transform: translateX(640px);
 }
 @media (min-width: 641px) {
-  .burger-menu__background {
+  .menu-and-popup__background {
     display: none;
   }
 }
@@ -1869,6 +1869,94 @@ h3 {
 }
 .header__nav_burger-menu .menu__link_active {
   color: #FE9013;
+}
+
+.testimonial-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 320px;
+  height: 428px;
+  position: fixed;
+  top: calc(50% - 214px);
+  left: calc(50% - 160px);
+}
+
+.testimonial-modal__close-btn {
+  margin-right: 10px;
+}
+
+.testimonial-modal__card-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 267px;
+  height: 391px;
+  border-radius: 20px;
+  z-index: -1;
+  margin-right: 36px;
+  background-image: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+}
+
+.testimonial-modal__card {
+  position: relative;
+  width: 263px;
+  height: 387px;
+  padding: 15px 14px 19px 16px;
+  background: #F1F3F2;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.testimonial-modal__data {
+  display: flex;
+}
+
+.testimonial-modal__name-location {
+  margin-left: 10px;
+}
+
+.testimonial-modal__name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #000000;
+}
+
+.testimonial-modal__location-date {
+  display: flex;
+}
+
+.testimonial-modal__location {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #BDBDBD;
+}
+.testimonial-modal__location::after {
+  content: "•";
+  margin-left: 6px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #BDBDBD;
+}
+
+.testimonial-modal__date {
+  margin-left: 6px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #BDBDBD;
+}
+
+.testimonial-modal__description {
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #767474;
 }
 
 /*# sourceMappingURL=style-main.css.map */

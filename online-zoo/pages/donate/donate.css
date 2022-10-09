@@ -545,9 +545,9 @@
 .progress-bar__ellipse-row .progress-bar__point {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin-top: 10px;
   width: 200px;
-  cursor: pointer;
 }
 @media (max-width: 1000px) {
   .progress-bar__ellipse-row .progress-bar__point:nth-child(-n+1) {
@@ -580,6 +580,7 @@
   background: #FFEE2E;
   border-radius: 50%;
   margin-left: 10px;
+  pointer-events: none;
 }
 .progress-bar__ellipse-row .progress-bar__point .progress-bar__ellipse:not(:first-child) {
   margin-left: 120px;
@@ -609,6 +610,7 @@
   text-transform: uppercase;
   color: #333B41;
   transition: all 1s ease;
+  pointer-events: none;
 }
 @media (max-width: 520px) {
   .progress-bar__ellipse-row .progress-bar__point .progress-bar__price {
@@ -626,6 +628,13 @@
   animation: pulse1 1s infinite;
 }
 .progress-bar__ellipse-row .progress-bar__point:hover .progress-bar__price {
+  color: #FE9013;
+}
+.progress-bar__ellipse-row .progress-bar__point_active .progress-bar__ellipse {
+  box-shadow: 0 0 0 rgba(254, 144, 19, 0.8);
+  animation: pulse1 1s infinite;
+}
+.progress-bar__ellipse-row .progress-bar__point_active .progress-bar__price {
   color: #FE9013;
 }
 
@@ -1139,9 +1148,9 @@
   }
 }
 
-.burger-menu__background {
+.menu-and-popup__background {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1152,7 +1161,7 @@
   transform: translateX(640px);
 }
 @media (min-width: 641px) {
-  .burger-menu__background {
+  .menu-and-popup__background {
     display: none;
   }
 }

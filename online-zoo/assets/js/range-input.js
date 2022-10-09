@@ -216,19 +216,77 @@ function generateCards() {
         let testimonialsCard = document.createElement('div');
         testimonialsCard.classList.add("testimonials__card");
         testimonialsCard.append(testimonialsData, testimonialsDescription);
+        
 
         let testimonialsBorder = document.createElement('div');
         testimonialsBorder.classList.add("testimonials__card-border");
         testimonialsBorder.append(testimonialsCard);
 
         testimonialsCards.append(testimonialsBorder);
+
+        testimonialsCard.addEventListener('click', (e) => console.log("u"));
     }
 }
 generateCards()
 
+
+function createModal(data) {
+    let testimonialsLocation = document.createElement('div');
+    testimonialsLocation.classList.add("testimonial-modal__location");
+    testimonialsLocation.textContent = data.location;
+
+    let testimonialsDate = document.createElement('div');
+    testimonialsDate.classList.add("testimonial-modal__date");
+    testimonialsDate.textContent = data.date;
+
+    let testimonialsLocationDate = document.createElement('div');
+    testimonialsLocationDate.classList.add("testimonial-modal__location-date");
+    testimonialsLocationDate.append(testimonialsLocation, testimonialsDate);
+
+    let testimonialsName = document.createElement('div');
+    testimonialsName.classList.add("testimonial-modal__name");
+    testimonialsName.textContent = data.name;
+
+    let testimonialsNameLocation = document.createElement('div');
+    testimonialsNameLocation.classList.add("testimonial-modal__name-location");
+    testimonialsNameLocation.append(testimonialsName, testimonialsLocationDate);
+
+    let avatar = document.createElement('img');
+    avatar.src = `../../assets/images/${data.avatar}`
+
+    let testimonialsPhoto = document.createElement('div');
+    testimonialsPhoto.classList.add("testimonial-modal__photo");
+    testimonialsPhoto.append(avatar);
+
+    let testimonialsData = document.createElement('div');
+    testimonialsData.classList.add("testimonial-modal__data");
+    testimonialsData.append(testimonialsPhoto, testimonialsNameLocation);
+
+    let testimonialsDescription = document.createElement('div');
+    testimonialsDescription.classList.add("testimonial-modal__description");
+    testimonialsDescription.innerHTML = data.description;
+
+    let testimonialsCard = document.createElement('div');
+    testimonialsCard.classList.add("testimonial-modal__card");
+    testimonialsCard.append(testimonialsData, testimonialsDescription);
+
+    let testimonialsBorder = document.createElement('div');
+    testimonialsBorder.classList.add("testimonial-modal__card-border");
+    testimonialsBorder.append(testimonialsCard);
+
+    let closeBtnImg = document.createElement('img');
+    closeBtnImg.src = '../../assets/icons/640px/close_modal.svg'
+
+    let testimonialsCloseBtn = document.createElement('div');
+    testimonialsCloseBtn.classList.add("testimonial-modal__close-btn");
+    testimonialsCloseBtn.append(closeBtnImg);
+
+    let testimonialModal = document.createElement('div');
+    testimonialModal.classList.add("testimonial-modal");
+    testimonialModal.append(testimonialsCloseBtn, testimonialsBorder);
+}
+
 let testimonialRange = document.querySelector('input[type="range"]');
-
-
 testimonialRange.addEventListener("input", rangeValue);
 
 if (window.screen.width === 1598) {
