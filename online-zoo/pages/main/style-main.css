@@ -1334,6 +1334,11 @@ h3 {
     grid-gap: 92px 30px;
   }
 }
+@media (max-width: 999px) {
+  .slider__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 @media (max-width: 639px) {
   .slider__cards {
     grid-row-gap: 20px;
@@ -1362,6 +1367,12 @@ h3 {
   .slider__cards .slider__card {
     width: 285px;
     height: 332px;
+  }
+}
+@media (max-width: 640px) {
+  .slider__cards .slider__card {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 .slider__cards .slider__card .slider__card-image {
@@ -1441,29 +1452,15 @@ h3 {
     margin-left: 0px;
   }
 }
-.slider__cards .slider__card .slider__card-banana {
+.slider__cards .slider__card .slider__card-food {
   width: 33px;
   height: 37px;
-  background: url("../../assets/icons/banana-bamboo_icon.svg") no-repeat center center;
 }
 @media (max-width: 999px) {
-  .slider__cards .slider__card .slider__card-banana {
+  .slider__cards .slider__card .slider__card-food {
     width: 25.72px;
     height: 28.84px;
     background-size: 25.72px 28.84px;
-    margin-right: 0px;
-  }
-}
-.slider__cards .slider__card .slider__card-meet {
-  width: 48px;
-  height: 38px;
-  background: url("../../assets/icons/meet-fish_icon.svg") no-repeat center center;
-}
-@media (max-width: 999px) {
-  .slider__cards .slider__card .slider__card-meet {
-    width: 37.41px;
-    height: 29.62px;
-    background-size: 37.41px 29.62px;
     margin-right: 0px;
   }
 }
