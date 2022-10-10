@@ -5,49 +5,56 @@ let sliderNext = document.querySelector('.slider__button_next');
 let currentItem = 0;
 let isEnabled = true;
 
+function hideItem(sliderCard, direction) {
+    isEnabled = false;
+
+    sliderCard.addEventListener('animationend', function() {
+        sliderCard.classList.remove('active');
+        sliderCard.classList.remove(direction);
+    }, { once: true });
+
+    sliderCard.classList.add(direction)
+}
+
+function showItem(sliderCard, direction) {
+    sliderCard.classList.add('active');
+    sliderCard.classList.add('next');
+
+    sliderCard.addEventListener('animationend', function() {
+        sliderCard.classList.remove(direction);
+        sliderCard.classList.remove('next');
+        isEnabled = true;
+    }, { once: true });
+
+    sliderCard.classList.add(direction)
+}
+
+
+
+function nextItem() {
+    hideItem(sliderCards[currentItem], 'to-right');
+    changeCurrentItem(currentItem + 1);
+    showItem(sliderCards[currentItem], 'from-left')
+}
+
+function previousItem() {
+    hideItem(sliderCards[currentItem], 'to-left');
+    changeCurrentItem(currentItem - 1);
+    showItem(sliderCards[currentItem], 'from-right')
+}
+
 function changeCurrentItem(n) {
     currentItem = (n + sliderCards.length) % sliderCards.length
-}
-
-function hideItem(direction){
-    isEnabled = false;
-    sliderCards[currentItem].classList.add(direction)
-    sliderCards[currentItem].addEventListener('animationend', function() {
-        this.classList.remove('active', direction);
-    })
-}
-
-function showItem(direction){
-    sliderCards[currentItem].classList.add('next', direction)
-    sliderCards[currentItem].addEventListener('animationend', function() {
-        this.classList.remove('next', direction);
-        this.classList.add('active');
-        isEnabled = true;
-    })
-}
-
-
-
-function previousItem(n) {
-    hideItem('to-right');
-    changeCurrentItem(n - 1);
-    showItem('from-left')
-}
-
-function nextItem(n) {
-    hideItem('to-left');
-    changeCurrentItem(n - 1);
-    showItem('from-right')
+    console.log(currentItem);
 }
 
 sliderPrev.addEventListener('click', function() {
     if (isEnabled) {
-        console.log("1")
-        previousItem(currentItem);
+        previousItem();
     }
 });
 sliderNext.addEventListener('click', function() {
     if (isEnabled) {
-        nextItem(currentItem);
+        nextItem();
     }
 });

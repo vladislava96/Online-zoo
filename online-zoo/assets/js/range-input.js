@@ -222,13 +222,15 @@ function generateCards() {
         testimonialsBorder.classList.add("testimonials__card-border");
         testimonialsBorder.append(testimonialsCard);
 
-        testimonialsCards.append(testimonialsBorder);
+        testimonialsCard.addEventListener('click', function (event) {
+            console.log(event);
+            console.log('!!');
+        });
 
-        testimonialsCard.addEventListener('click', (e) => console.log("u"));
+        testimonialsCards.append(testimonialsBorder);
     }
 }
-generateCards()
-
+generateCards();
 
 function createModal(data) {
     let testimonialsLocation = document.createElement('div');

@@ -3,7 +3,8 @@ const progress_bar_container = document.querySelector('.progress-bar__ellipse-ro
 
 progress_bar_container.addEventListener('click', (event) => {
     const target = event.target;
-
+    console.log(event.target);
+    console.log(event.currentTarget);
     for (let point of progress_bar_points) {
         point.classList.remove('progress-bar__point_active')
     }

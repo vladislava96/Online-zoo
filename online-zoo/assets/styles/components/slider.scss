@@ -35,11 +35,13 @@
         top: 430px;
         left: calc(50% - 147.5px);
         width: 295px;
+        z-index: 80;
     }
     @media(max-width: 999px) {
         top: 405px;
         left: 223px;
         width: 154px;
+        z-index: 80;
     }
     @media(max-width: 639px) {
         display: none;
@@ -61,18 +63,18 @@
         height: 1388px;
     }
 }
+.slider__cards {
+    display: none;
+    padding: 20px;
+    margin: -20px;
+}
 .slider__cards.active {
     display: grid;
 }
 .slider__cards.next {
-    display: grid;
-}
-.next {
     position: absolute;
-    top: 0;
-}
-.slider__cards {
-    display: none;
+    left: 0;
+    width: 1160px;
 }
 .slider__cards {
     position: relative;
@@ -227,7 +229,6 @@
 }
 .to-right {
     animation-name: right;
-    animation-direction: reverse;
 }
 .from-left {
     animation-name: left;
@@ -235,11 +236,12 @@
 }
 .from-right {
     animation-name: right;
+    animation-direction: reverse;
 }
 
 @keyframes left {
     from {
-        left: 0
+        left: 0%;
     }
     to {
         left: -100%;
@@ -248,9 +250,9 @@
 
 @keyframes right {
     from {
-        left: 100%;
+        left: 0%;
     }
     to {
-        left: 0%;
+        left: 100%;
     }
 }
