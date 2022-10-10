@@ -1,5 +1,6 @@
-const testimonialsCards = document.querySelector(".testimonials__cards")
-
+const testimonialsCards = document.querySelector(".testimonials__cards");
+const body = document.querySelector('body');
+const blackOut = document.querySelector('.menu-and-popup__background');
 
 const testimonials = [
     {
@@ -222,9 +223,11 @@ function generateCards() {
         testimonialsBorder.classList.add("testimonials__card-border");
         testimonialsBorder.append(testimonialsCard);
 
-        testimonialsCard.addEventListener('click', function (event) {
-            console.log(event);
-            console.log('!!');
+        testimonialsCard.addEventListener('click', () => {
+            if (window.screen.width < 1000) {
+                createModal(testimonialData)
+            }
+            
         });
 
         testimonialsCards.append(testimonialsBorder);
@@ -286,6 +289,25 @@ function createModal(data) {
     let testimonialModal = document.createElement('div');
     testimonialModal.classList.add("testimonial-modal");
     testimonialModal.append(testimonialsCloseBtn, testimonialsBorder);
+
+    body.append(testimonialModal);
+
+    
+    blackOut.style.display = 'block';
+    blackOut.style.transform = 'translateX(0px)';
+    body.style.overflow = 'hidden';
+  
+    //полностью очищаем память
+    closeBtnImg.addEventListener('click', function onBtnClick() {
+    //   modalWindow.classList.remove('modal-window_show');
+    //   setTimeout(() => {
+        blackOut.style.transform = 'translateX(640px)';
+        blackOut.style.display = 'none';
+        body.style.overflow = 'visible';
+        closeBtnImg.removeEventListener('click', onBtnClick);
+        body.removeChild(testimonialModal);
+    //   }, 1100)
+    })
 }
 
 let testimonialRange = document.querySelector('input[type="range"]');

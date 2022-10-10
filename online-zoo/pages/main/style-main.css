@@ -1878,6 +1878,7 @@ h3 {
   width: 320px;
   height: 428px;
   position: fixed;
+  z-index: 30;
   top: calc(50% - 214px);
   left: calc(50% - 160px);
 }
