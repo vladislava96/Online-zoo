@@ -28,6 +28,7 @@
     margin-bottom: 15px;
     @media(max-width: 999px) {
         height: 357px;
+        overflow: scroll;
     }
 }
 .testimonials__card {

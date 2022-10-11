@@ -1303,6 +1303,7 @@ h3 {
     padding: 0px;
     margin: 0px;
     height: 1388px;
+    overflow: scroll;
   }
 }
 
@@ -1582,6 +1583,7 @@ h3 {
 @media (max-width: 999px) {
   .testimonials__visible-cards {
     height: 357px;
+    overflow: scroll;
   }
 }
 
