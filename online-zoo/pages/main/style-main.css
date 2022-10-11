@@ -1393,12 +1393,14 @@ h3 {
   .slider__cards .slider__card .slider__card-image {
     width: 285px;
     height: 285px;
+    overflow: hidden;
   }
 }
 .slider__cards .slider__card .slider__card-image img {
   display: block;
   width: 100%;
   height: 100%;
+  transition: all 1s ease;
 }
 .slider__cards .slider__card .slider__card-description {
   display: flex;
@@ -1454,8 +1456,12 @@ h3 {
   }
 }
 .slider__cards .slider__card .slider__card-food {
-  width: 33px;
-  height: 37px;
+  width: 48px;
+  height: 38px;
+  margin-bottom: 5px;
+}
+.slider__cards .slider__card .slider__card-food img {
+  float: right;
 }
 @media (max-width: 999px) {
   .slider__cards .slider__card .slider__card-food {
@@ -1481,6 +1487,20 @@ h3 {
   .slider__cards .slider__card:hover .slider__card-image {
     width: 305px;
     height: 305px;
+  }
+}
+@media (max-width: 999px) {
+  .slider__cards .slider__card:hover .slider__card-image {
+    width: 285px;
+    height: 285px;
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 999px) {
+  .slider__cards .slider__card:hover .slider__card-image img {
+    width: 305px;
+    height: 305px;
+    transform: translateY(-15px);
   }
 }
 .slider__cards .slider__card:hover .slider__card-name {
