@@ -1903,7 +1903,7 @@ h3 {
   padding: 15px 14px 19px 16px;
   background: #F1F3F2;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: scroll;
   z-index: 10;
 }
 
