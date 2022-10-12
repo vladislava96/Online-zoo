@@ -116,7 +116,6 @@ function drawPages() {
     pageElements[currentItem].classList.add('active');
 }
 
-
 function createPages(animals, pageSize) {
     let pages = [];
     let page = [];
@@ -130,6 +129,17 @@ function createPages(animals, pageSize) {
     }
 
     return pages;
+}
+
+function shufflePageElementContent(pageElement)
+{
+    let children = [...pageElement.children]
+
+    children.sort(() => Math.random() - 0.5);
+
+    for (let child of children) {
+        pageElement.appendChild(child);
+    }
 }
 
 function createPageElement(page) {
@@ -217,6 +227,7 @@ function previousItem() {
     if (isEnabled) {
         hideItem(pageElements[currentItem], 'to-right');
         changeCurrentItem(currentItem + 1);
+        shufflePageElementContent(pageElements[currentItem]);
         showItem(pageElements[currentItem], 'from-left');
     }
 }
@@ -225,6 +236,7 @@ function nextItem() {
     if (isEnabled) {
         hideItem(pageElements[currentItem], 'to-left');
         changeCurrentItem(currentItem - 1);
+        shufflePageElementContent(pageElements[currentItem]);
         showItem(pageElements[currentItem], 'from-right');
     }
 }
