@@ -298,6 +298,16 @@ function createModal(data) {
     body.style.overflow = 'hidden';
   
     //полностью очищаем память
+    blackOut.addEventListener('click', function onBtnClick() {
+        //   modalWindow.classList.remove('modal-window_show');
+        //   setTimeout(() => {
+            blackOut.style.transform = 'translateX(640px)';
+            blackOut.style.display = 'none';
+            body.style.overflow = 'visible';
+            closeBtnImg.removeEventListener('click', onBtnClick);
+            body.removeChild(testimonialModal);
+        //   }, 1100)
+    })
     closeBtnImg.addEventListener('click', function onBtnClick() {
     //   modalWindow.classList.remove('modal-window_show');
     //   setTimeout(() => {
@@ -313,7 +323,7 @@ function createModal(data) {
 let testimonialRange = document.querySelector('input[type="range"]');
 testimonialRange.addEventListener("input", rangeValue);
 
-if (window.screen.width === 1598) {
+if (window.screen.width <= 1598) {
     testimonialRange.max = 9;
 }
 
