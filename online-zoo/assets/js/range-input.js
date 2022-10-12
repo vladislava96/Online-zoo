@@ -323,16 +323,26 @@ function createModal(data) {
 let testimonialRange = document.querySelector('input[type="range"]');
 testimonialRange.addEventListener("input", rangeValue);
 
+let offset;
+window.addEventListener('resize', () => {
+    if (window.screen.width <= 1598) {
+        testimonialRange.max = 9;
+        offset = 323;
+    } else {
+        testimonialRange.max = 8;
+        offset = 297; 
+    }
+})
+
 if (window.screen.width <= 1598) {
     testimonialRange.max = 9;
+    offset = 323;
+} else {
+    testimonialRange.max = 8;
+    offset = 297; 
 }
 
 function rangeValue() {
-    let offset = 297;
-
-    if (window.screen.width <= 1598) {
-        offset = 323;
-    }
     
     let newValue = testimonialRange.value;
     
